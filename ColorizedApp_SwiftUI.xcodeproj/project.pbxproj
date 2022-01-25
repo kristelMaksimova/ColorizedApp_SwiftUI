@@ -11,6 +11,7 @@
 		206A610C27A00E6A0058E387 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A610B27A00E6A0058E387 /* ContentView.swift */; };
 		206A610E27A00E700058E387 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 206A610D27A00E700058E387 /* Assets.xcassets */; };
 		206A611127A00E700058E387 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 206A611027A00E700058E387 /* Preview Assets.xcassets */; };
+		206A611A27A0565F0058E387 /* RectangleSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206A611927A0565F0058E387 /* RectangleSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		206A610B27A00E6A0058E387 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		206A610D27A00E700058E387 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		206A611027A00E700058E387 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		206A611927A0565F0058E387 /* RectangleSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				206A610927A00E6A0058E387 /* ColorizedApp_SwiftUIApp.swift */,
 				206A610B27A00E6A0058E387 /* ContentView.swift */,
+				206A611927A0565F0058E387 /* RectangleSettings.swift */,
 				206A610D27A00E700058E387 /* Assets.xcassets */,
 				206A610F27A00E700058E387 /* Preview Content */,
 			);
@@ -139,6 +142,7 @@
 			files = (
 				206A610C27A00E6A0058E387 /* ContentView.swift in Sources */,
 				206A610A27A00E6A0058E387 /* ColorizedApp_SwiftUIApp.swift in Sources */,
+				206A611A27A0565F0058E387 /* RectangleSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
