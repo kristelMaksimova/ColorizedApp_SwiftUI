@@ -8,70 +8,46 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var red = Double.random(in: 0...255)
+    @State private var green = Double.random(in: 0...255)
+    @State private var blue = Double.random(in: 0...255)
     
-    //MARK: - Variable
-    @State private var redSliderValue = 255.0
-    @State private var greenSliderValue = 130.0
-    @State private var blueSliderValue = 0.0
+    @FocusState private var isInputActive: Bool
     
-    @State private var redColor = Color.red
-    @State private var greenColor = Color.green
-    @State private var blueColor = Color.blue
-    
-    @FocusState var isInputActive: Bool
-    
-    //MARK: - Body
     var body: some View {
-        VStack {
-            RectangleSettings()
-                .foregroundColor(Color(red: redSliderValue / 255,
-                                       green: greenSliderValue / 255,
-                                       blue: blueSliderValue / 255,
-                                       opacity: 1.0))
-            StackOfElements(value: $redSliderValue, color: $redColor)
-            StackOfElements(value: $greenSliderValue, color: $greenColor)
-            StackOfElements(value: $blueSliderValue, color: $blueColor)
-            Spacer()
-        }
-        .padding()
-        
-        .focused($isInputActive)
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-                
-                Button("Done") {
+        ZStack {
+            Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)).ignoresSafeArea()
+                .onTapGesture {
                     isInputActive = false
                 }
+            
+            VStack(spacing: 40) {
+                ColorView(red: red, green: green, blue: blue)
+                
+                VStack {
+                    ColorSliderView(value: $red, color: .red)
+                    ColorSliderView(value: $green, color: .green)
+                    ColorSliderView(value: $blue, color: .blue)
+                }
+                .frame(height: 150)
+                .focused($isInputActive)
+                .toolbar {
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Spacer()
+                        Button("Done") {
+                            isInputActive = false
+                        }
+                    }
+                }
+                Spacer()
             }
-        }   
+            .padding()
+        }
     }
 }
 
-//MARK: - PreviewProvider
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
-
-//MARK: - Template for stacks
-struct StackOfElements: View {
-    
-    @Binding var value: Double
-    @Binding var color: Color
-    
-    var body: some View {
-        HStack {
-            Text(value, format: .number)
-                .frame(width: 35)
-            Slider(value: $value, in: 0...255, step: 1)
-                .accentColor(color)
-            TextField("255", value: $value, format: .number)
-                .frame(width: 45)
-                .textFieldStyle(.roundedBorder)
-                .keyboardType(.numberPad)
-        }
-    }
-}
-
